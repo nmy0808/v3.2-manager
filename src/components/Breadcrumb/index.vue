@@ -4,7 +4,7 @@
     <template v-for='(item,index) in list' :key='item.meta.title'>
       <!--最后一个面包屑不需要跳转链接-->
       <el-breadcrumb-item :to='item.path' v-if='index < list.length-1'>{{ item.meta.title }}</el-breadcrumb-item>
-      <el-breadcrumb-item v-else>{{ item.meta.title }}</el-breadcrumb-item>
+      <el-breadcrumb-item class='no-redirect' v-else>{{ item.meta.title }}</el-breadcrumb-item>
     </template>
   </el-breadcrumb>
 </template>
@@ -26,9 +26,11 @@ const list = computed(() => {
   line-height: 50px;
   margin-left: 8px;
 
-  ::v-deep .no-redirect {
-    color: #97a8be;
-    cursor: text;
+  ::v-deep(.no-redirect) {
+    .el-breadcrumb__inner {
+      color: #97a8be;
+      cursor: text;
+    }
   }
 }
 </style>
