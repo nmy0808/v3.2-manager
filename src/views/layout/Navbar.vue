@@ -1,8 +1,12 @@
 <template>
   <div class='navbar'>
-    <div class='right-menu'>
+    <div class='left-menu'>
       <!--     汉堡按钮-->
       <hamburger class='hamburger-container' />
+      <!--      面包屑-->
+      <Breadcrumb />
+    </div>
+    <div class='right-menu'>
       <!--      头像  -->
       <div class='avatar-wrapper'>
         <el-dropdown trigger='click'>
@@ -25,7 +29,7 @@
 <script setup>
 import store from '@/store'
 import Hamburger from '@/components/Hamburger'
-
+import Breadcrumb from '@/components/Breadcrumb'
 // 事件: 退出登录
 const onLayout = () => {
   store.dispatch('user/loginOut')
@@ -39,6 +43,12 @@ const onLayout = () => {
   position: relative;
   background: #fff;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+  .left-menu {
+    float: left;
+    display: flex;
+    align-items: center;
+  }
 
   .right-menu {
     display: flex;

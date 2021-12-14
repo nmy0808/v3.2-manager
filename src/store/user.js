@@ -9,17 +9,17 @@ export default {
   state: () => {
     return {
       token: storage.getItem(constants.TOKEN) || '',
-      userInfo: storage.getItem(constants.USERINFO) || {}
+      userInfo: {}
     }
   },
   mutations: {
     setToken (state, payload) {
       state.token = payload
+      setLoginTimeStamp()
       storage.setItem(constants.TOKEN, payload)
     },
     setUserInfo (state, payload) {
       state.userInfo = payload
-      setLoginTimeStamp()
       storage.setItem(constants.USERINFO, payload)
     }
   },
