@@ -10,9 +10,7 @@
     </el-submenu>
     <!-- 具体菜单项 -->
     <el-menu-item :index='item.path' v-else>
-      <template #title>
-        <menu-item :title='item.meta.title' :icon='item.meta.icon' v-if='item.meta.icon'></menu-item>
-      </template>
+      <menu-item :title='item.meta.title' :icon='item.meta.icon' v-if='item.meta.icon'></menu-item>
     </el-menu-item>
   </template>
 </template>

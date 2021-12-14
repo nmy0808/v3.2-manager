@@ -8,5 +8,7 @@ export default {
     return state.user.token
   },
   // css样式变量
-  cssVar: state => variable
+  cssVar: state => variable,
+  // 侧导航开关
+  sidebarOpened: state => state.app.sidebarOpened
 }

@@ -1,6 +1,8 @@
 <template>
   <div class='navbar'>
     <div class='right-menu'>
+      <!--     汉堡按钮-->
+      <hamburger class='hamburger-container' />
       <!--      头像  -->
       <div class='avatar-wrapper'>
         <el-dropdown trigger='click'>
@@ -22,6 +24,8 @@
 
 <script setup>
 import store from '@/store'
+import Hamburger from '@/components/Hamburger'
+
 // 事件: 退出登录
 const onLayout = () => {
   store.dispatch('user/loginOut')
@@ -49,6 +53,20 @@ const onLayout = () => {
       --el-avatar-background-color: none;
       margin-right: 12px;
     }
+
+    .hamburger-container {
+      line-height: 46px;
+      height: 100%;
+      float: left;
+      cursor: pointer;
+      // hover 动画
+      transition: background #{$sideBarDuration};
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+    }
   }
+
 }
 </style>

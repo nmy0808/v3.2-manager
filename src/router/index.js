@@ -101,6 +101,7 @@ const privateRoutes = [
 const publicRoutes = [
   {
     path: '/login',
+    name: 'login',
     component: () => import('@/views/login')
   },
   {
