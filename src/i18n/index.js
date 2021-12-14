@@ -2,7 +2,8 @@ import { createI18n } from 'vue-i18n/dist/vue-i18n.cjs.prod'
 import en from './lang/en'
 import zh from './lang/zh'
 import store from '@/store'
-
+// import zhCn from 'element-plus/lib/locale/lang/zh-cn'
+// import een from 'element-plus/lib/locale/lang/en'
 // 1. 创建 messages 数据源
 const messages = {
   en: {
