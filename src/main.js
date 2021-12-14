@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
+import i18n from '@/i18n'
 import App from './App.vue'
 import router from './router'
 import store from './store'
@@ -11,6 +12,7 @@ import '@/assets/styles/index.scss'
 import './permission'
 
 const app = createApp(App)
+app.use(i18n)
 installElementPlus(app)
 installSvgIcon(app)
 app.use(store).use(router).mount('#app')

@@ -2,6 +2,7 @@
   <div class='login-page'>
     <el-form class='login-form' :model='loginForm' :rules='loginRules' ref='formCom'>
       <div class='login-form-title'>用户登录</div>
+      <LangSelect class='login-lang' effect='light'/>
       <el-form-item prop='username'>
         <el-input placeholder='请输入账号' v-model='loginForm.username'>
           <template #prefix>
@@ -31,7 +32,7 @@ import { nextTick, ref } from 'vue'
 import { validatePassword } from '@/utils/validate-rules'
 import { useStore } from 'vuex'
 import router from '@/router'
-import { setLoginTimeStamp } from '@/utils/auth'
+import LangSelect from '@/components/LangSelect'
 // 对象: 用户登录form
 const loginForm = ref({
   username: 'super-admin',
@@ -94,15 +95,23 @@ const onLoginSubmit = () => {
   width: 100%;
   min-height: 100%;
   background: $bg;
-
+  ::v-deep .el-input__validateIcon{
+    display: none;
+  }
+  .login-lang{
+    position: absolute;
+    right: 0;
+    top: 230px;
+  }
   .login-form {
+    position: relative;
     width: 500px;
-    padding: 30px 0;
+    height: 200px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding-top: 100px;
+    padding: 200px 0 30px;
 
     &-title {
       font-size: 30px;

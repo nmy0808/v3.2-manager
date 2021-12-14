@@ -4,17 +4,23 @@ import storage from '@/utils/storage'
 import constants from '@/constants'
 import store from '@/store'
 import { isCheckLoginTimeout, setLoginTimeStamp } from '@/utils/auth'
+import router from '@/router'
 
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 3000
 })
 // 添加请求拦截器
-service.interceptors.request.use((config) => {
+service.interceptors.request.use(async (config) => {
   const token = storage.getItem(constants.TOKEN)
   if (token) {
     config.headers.Authorization = 'Bearer ' + token
-    isCheckLoginTimeout()
+    // 判断: 如果登录超时
+    const isTimeout = isCheckLoginTimeout()
+    if (isTimeout) {
+      await store.dispatch('user/loginOut')
+      return Promise.reject(new Error('登录超时'))
+    }
   }
   return config
 })

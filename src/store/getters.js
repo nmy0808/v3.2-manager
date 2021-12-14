@@ -10,5 +10,7 @@ export default {
   // css样式变量
   cssVar: state => variable,
   // 侧导航开关
-  sidebarOpened: state => state.app.sidebarOpened
+  sidebarOpened: state => state.app.sidebarOpened,
+  // 国际化
+  language: state => state.app.language
 }

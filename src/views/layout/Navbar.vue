@@ -7,6 +7,8 @@
       <Breadcrumb />
     </div>
     <div class='right-menu'>
+      <!--   国际化-->
+      <LangSelect/>
       <!--      头像  -->
       <div class='avatar-wrapper'>
         <el-dropdown trigger='click'>
@@ -30,6 +32,7 @@
 import store from '@/store'
 import Hamburger from '@/components/Hamburger'
 import Breadcrumb from '@/components/Breadcrumb'
+import LangSelect from '@/components/LangSelect'
 // 事件: 退出登录
 const onLayout = () => {
   store.dispatch('user/loginOut')

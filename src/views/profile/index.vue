@@ -1,9 +1,10 @@
 <template>
-  <div class="">个人中心</div>
+  <div class=''>个人中心
+    <i class="sub-el-icon el-icon-user"></i>
+    <el-pagination :total='100'></el-pagination>
+  </div>
 </template>
-
 <script setup>
-import {} from 'vue'
 </script>
 
-<style lang="scss" scoped></style>
+<style lang='scss' scoped></style>
