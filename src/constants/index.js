@@ -6,5 +6,7 @@ export default {
   // 登录超时
   TOKEN_TIMEOUT_VALUE: 2 * 3600 * 1000,
   // 国际化
-  LANGUAGE: 'LANGUAGE'
+  LANGUAGE: 'LANGUAGE',
+  // 主题色
+  THEME: 'THEME'
 }
