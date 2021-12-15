@@ -46,6 +46,7 @@ export default {
     loginOut (ctx) {
       ctx.commit('setToken', '')
       ctx.commit('setUserInfo', {})
+      ctx.commit('app/setTagsView', [], { root: true })
       storage.clearAll()
       router.push('/login')
     }

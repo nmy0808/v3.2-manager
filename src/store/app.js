@@ -46,6 +46,7 @@ export default {
     },
     // 设置/覆盖tagsView
     setTagsView (state, payload) {
+      console.log(123)
       state.tagsView = payload
       storage.setItem(constants.TAGS_VIEW, state.tagsView)
     }
