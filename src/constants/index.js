@@ -8,5 +8,7 @@ export default {
   // 国际化
   LANGUAGE: 'LANGUAGE',
   // 主题色
-  THEME: 'THEME'
+  THEME: 'THEME',
+  // tagsView
+  TAGS_VIEW: 'TAGSVIEW'
 }

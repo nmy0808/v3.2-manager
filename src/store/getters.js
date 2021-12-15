@@ -20,5 +20,7 @@ export default {
   // 国际化
   language: state => state.app.language,
   // 主题颜色
-  themeColor: state => state.theme.themeColor
+  themeColor: state => state.theme.themeColor,
+  // 头部tagsView
+  tagsView: state => state.app.tagsView
 }

@@ -8,8 +8,10 @@
     />
     <div class='main-container'>
       <div class='fixed-header'>
-        <!-- 顶部的 navbar -->
+        <!-- 顶部的 nav  bar -->
         <navbar />
+<!--        -->
+        <tags-view class='tags-view-container'/>
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -23,6 +25,7 @@ import Sidebar from './sidebar'
 import AppMain from './AppMain'
 // 主题更换: 为 `sidebar` 赋值动态的背景颜色
 import variables from '@/assets/styles/variable.scss'
+import TagsView from '@/components/TagsView/TagsView'
 </script>
 
 <style lang='scss' scoped>
