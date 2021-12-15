@@ -7,6 +7,8 @@
       <Breadcrumb />
     </div>
     <div class='right-menu'>
+      <!--     搜索 -->
+      <header-search />
       <!--      全屏-->
       <screen-full />
       <!--      主题-->
@@ -39,6 +41,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 import LangSelect from '@/components/LangSelect'
 import ThemeSelect from '@/components/ThemeSelect/ThemeSelect'
 import ScreenFull from '@/components/Screenfull/ScreenFull'
+import HeaderSearch from '@/components/HeaderSearch/HeaderSearch'
 // 事件: 退出登录
 const onLayout = () => {
   store.dispatch('user/loginOut')

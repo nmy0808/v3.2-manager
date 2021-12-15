@@ -1,5 +1,6 @@
 <template>
   <svg-icon
+    class='full-icon'
     :icon="isFullscreen ? 'exit-fullscreen' : 'fullscreen'"
     @click='onToggle'
   />
@@ -18,7 +19,6 @@ const onToggle = () => {
 const change = () => {
   isFullscreen.value = screenfull.isFullscreen
 }
-
 // 设置侦听器
 onMounted(() => {
   screenfull.on('change', change)
@@ -30,4 +30,9 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang='scss' scoped></style>
+<style lang='scss' scoped>
+.full-icon{
+  font-size: 25px;
+  margin-right: 16px;
+}
+</style>
