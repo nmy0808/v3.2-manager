@@ -12,6 +12,7 @@ export const writeNewStyle = elNewStyle => {
   style.innerText = elNewStyle
   document.head.appendChild(style)
 }
+
 /**
  * 根据主色值，生成最新的样式表
  */
