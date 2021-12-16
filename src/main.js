@@ -10,8 +10,11 @@ import installSvgIcon from './icons'
 import '@/assets/styles/index.scss'
 // 鉴权
 import './permission'
+// 注册全局filter
+import { installGlobalFilters } from '@/filters'
 
 const app = createApp(App)
+installGlobalFilters(app)
 app.use(i18n)
 installElementPlus(app)
 installSvgIcon(app)
