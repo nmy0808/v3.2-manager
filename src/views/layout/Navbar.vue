@@ -4,9 +4,11 @@
       <!--     汉堡按钮-->
       <hamburger class='hamburger-container' />
       <!--      面包屑-->
-      <Breadcrumb />
+      <Breadcrumb/>
     </div>
     <div class='right-menu'>
+      <!--     引导-->
+      <Guide class='right-menu-item hover-effect' id='guide-start'/>
       <!--     搜索 -->
       <header-search />
       <!--      全屏-->
@@ -42,6 +44,7 @@ import LangSelect from '@/components/LangSelect'
 import ThemeSelect from '@/components/ThemeSelect/ThemeSelect'
 import ScreenFull from '@/components/Screenfull/ScreenFull'
 import HeaderSearch from '@/components/HeaderSearch/HeaderSearch'
+import Guide from '@/components/Guide/Guide'
 // 事件: 退出登录
 const onLayout = () => {
   store.dispatch('user/loginOut')
