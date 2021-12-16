@@ -2,19 +2,23 @@
   <div class='tag-view-container'>
     <div class='tag-item' v-for='item in tagsView' :key='item' :class='[isActive(item)?"active":null]'
          @click='onSelectItem(item)'
-         :style='[isActive(item)?itemActiveStyle:""]'>
+         @contextmenu.prevent='openMenu($event,item)'
+         :style='[isActive(item)?itemActiveStyle:""]'
+    >
       {{ item.title }}
       <svg-icon icon='close' class='tag-close-icon' @click.stop='onClose(item)' v-if='!isActive(item)'></svg-icon>
     </div>
+    <context-menu v-model='menuVisible' :position='menuPosition' :current-tag='currentItem' />
   </div>
 </template>
 
 <script setup>
-import { computed, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import store from '@/store'
 import { useRoute } from 'vue-router'
 import router from '@/router'
 import { watchEffectI18n } from '@/i18n/watchEffectI18n'
+import ContextMenu from '@/components/ContextMenu/ContextMenu'
 
 const route = useRoute()
 // css: 全局css变量
@@ -47,6 +51,23 @@ const onSelectItem = (item) => {
 // 方法: 判断当前tag是否为激活状态
 const isActive = (item) => {
   return item.fullPath === route.fullPath
+}
+
+// model属性: 显示右键菜单组件
+const menuVisible = ref(false)
+// 定位: 当前右键tag所记录的定位信息
+const menuPosition = ref({
+  x: 0,
+  y: 0
+})
+// 当前右键选中的tag
+const currentItem = ref(null)
+// 事件: 打开contextMenu组件
+const openMenu = (e, item) => {
+  menuPosition.value.x = e.x
+  menuPosition.value.y = e.y
+  currentItem.value = item
+  menuVisible.value = true
 }
 </script>
 

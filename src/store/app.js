@@ -44,9 +44,14 @@ export default {
       state.tagsView.splice(index, 1)
       storage.setItem(constants.TAGS_VIEW, state.tagsView)
     },
+    // 删除当前tag右边的tagsView项
+    deleteRightTagsView (state, item) {
+      const index = state.tagsView.findIndex(it => it.fullPath === item.fullPath)
+      state.tagsView.splice(index + 1, state.tagsView.length)
+      storage.setItem(constants.TAGS_VIEW, state.tagsView)
+    },
     // 设置/覆盖tagsView
     setTagsView (state, payload) {
-      console.log(123)
       state.tagsView = payload
       storage.setItem(constants.TAGS_VIEW, state.tagsView)
     }
@@ -61,6 +66,24 @@ export default {
         }
       })
       ctx.commit('setTagsView', newTagsView)
+    },
+    /**
+     * 删除自定类型的tagsView
+     * @param ctx
+     * @param {Object} (type: 'index'|'other'|'right' , item: 当前tag)
+     */
+    deleteTagViewByType (ctx, payload) {
+      const {
+        type,
+        item
+      } = payload
+      if (type === 'index') {
+        ctx.commit('deleteOneTagsView', item)
+      } else if (type === 'other') {
+        ctx.commit('setTagsView', [item])
+      } else if (type === 'right') {
+        ctx.commit('deleteRightTagsView', item)
+      }
     }
   }
 }
