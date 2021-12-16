@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-tooltip :content="$t('msg.navBar.guide')">
-      <svg-icon icon='guide' @click='onBeginGuide' />
+      <svg-icon class='guide-icon' icon='guide' @click='onBeginGuide' />
     </el-tooltip>
   </div>
 </template>
@@ -29,4 +29,9 @@ const onBeginGuide = () => {
   driver.start()
 }
 </script>
-<style scoped></style>
+<style scoped>
+.guide-icon{
+  font-size: 25px;
+  margin-right: 20px;
+}
+</style>
