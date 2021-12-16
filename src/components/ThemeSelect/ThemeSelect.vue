@@ -1,8 +1,8 @@
 <template>
-  <el-dropdown class='theme-dropdown' @command='handleCommand'>
-    <span class='el-dropdown-link'>
-       <el-tooltip :content="$t('msg.navBar.themeChange')">
-        <svg-icon class='theme-icon' icon='change-theme' />
+  <el-dropdown class="theme-dropdown" @command="handleCommand">
+    <span class="el-dropdown-link">
+      <el-tooltip :content="$t('msg.navBar.themeChange')">
+        <svg-icon class="theme-icon" icon="change-theme" />
       </el-tooltip>
     </span>
     <template #dropdown>
@@ -12,7 +12,7 @@
     </template>
   </el-dropdown>
   <!--  选择颜色-->
-  <SelectColor v-model='dialogVisible' />
+  <SelectColor v-model="dialogVisible" />
 </template>
 
 <script setup>
@@ -25,7 +25,7 @@ const handleCommand = () => {
 }
 </script>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 .theme-dropdown {
   margin-right: 20px;
 
@@ -33,5 +33,4 @@ const handleCommand = () => {
     font-size: 25px;
   }
 }
-
 </style>
