@@ -12,9 +12,12 @@ import '@/assets/styles/index.scss'
 import './permission'
 // 注册全局filter
 import { installGlobalFilters } from '@/filters'
+// 注册全局指令
+import installDirective from '@/directives'
 
 const app = createApp(App)
 installGlobalFilters(app)
+installDirective(app)
 app.use(i18n)
 installElementPlus(app)
 installSvgIcon(app)

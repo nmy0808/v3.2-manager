@@ -18,7 +18,7 @@
         {{ $filters.formatDate(row.openTime) }}
       </el-table-column>
       <el-table-column label='操作' fixed='right' #default='{row}' width='500'>
-        <el-button size='mini' type='primary'>查看</el-button>
+        <el-button size='mini' type='primary' @click='toPageUserInfo(row)'>查看</el-button>
         <el-button size='mini' type='info'>角色</el-button>
         <el-button size='mini' type='danger' @click='onDeleteOneUserManage(row)'>删除</el-button>
       </el-table-column>
@@ -30,6 +30,7 @@
 import { inject, ref } from 'vue'
 import { deleteUserManageByIdApi } from '@/api/user-manage'
 import { ElMessage, ElMessageBox } from 'element-plus'
+import router from '@/router'
 
 const loading = ref(false)
 // 事件源
@@ -58,6 +59,11 @@ const onDeleteOneUserManage = async (item) => {
     })
     .catch(() => {
     })
+}
+
+// 事件: 跳转用户详情页
+const toPageUserInfo = (item) => {
+  router.push('/user/info/' + item._id)
 }
 </script>
 

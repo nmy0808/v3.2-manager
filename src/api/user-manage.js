@@ -17,3 +17,12 @@ export async function getUserManageListApi (params) {
 export async function deleteUserManageByIdApi (id) {
   return request.get('/user-manage/detele/' + id)
 }
+
+/**
+ * 根据id获取员工详情
+ * @param id
+ * @returns {Promise<*>}
+ */
+export async function getUserManageInfoByIdApi (id) {
+  return request.get('/user-manage/detail/' + id)
+}
