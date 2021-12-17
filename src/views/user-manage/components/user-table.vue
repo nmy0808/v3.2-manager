@@ -29,7 +29,7 @@
 <script setup>
 import { inject, ref } from 'vue'
 import { deleteUserManageByIdApi } from '@/api/user-manage'
-import { ElMessage } from 'element-plus'
+import { ElMessage, ElMessageBox } from 'element-plus'
 
 const loading = ref(false)
 // 事件源
@@ -40,12 +40,24 @@ const getUserMangeList = inject('getUserMangeList')
 // 事件: 删除用户
 const onDeleteOneUserManage = async (item) => {
   if (loading.value) return
-  loading.value = true
-  // 请求: 根据id删除用户
-  await deleteUserManageByIdApi(item._id)
-  await getUserMangeList()
-  ElMessage.success('删除成功')
-  loading.value = false
+  // 弹窗询问
+  ElMessageBox({
+    title: '删除用户',
+    message: <span>是否要删除姓名为<span style='color: red;'>{item.username}</span>的用户?</span>,
+    type: 'warning',
+    boxType: 'confirm',
+    showCancelButton: true
+  })
+    .then(async () => {
+      loading.value = true
+      // 请求: 根据id删除用户
+      await deleteUserManageByIdApi(item._id)
+      await getUserMangeList()
+      ElMessage.success('删除成功')
+      loading.value = false
+    })
+    .catch(() => {
+    })
 }
 </script>
 
