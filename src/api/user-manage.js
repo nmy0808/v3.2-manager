@@ -10,6 +10,14 @@ export async function getUserManageListApi (params) {
 }
 
 /**
+ * 获取所有员工列表
+ * @returns {Promise<*>}
+ */
+export async function getUserManageAllListApi () {
+  return request.get('/user-manage/all-list')
+}
+
+/**
  * 删除员工
  * @param id 员工id
  * @returns {Promise<*>}
