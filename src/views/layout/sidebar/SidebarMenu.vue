@@ -1,21 +1,22 @@
 <template>
   <!-- 一级 menu 菜单 -->
   <el-menu
-    :collapse="!$store.getters.sidebarOpened"
+    :collapse='!$store.getters.sidebarOpened'
     :uniqueOpened='true'
-    :background-color="$store.getters.cssVar.menuBg"
-    :text-color="$store.getters.cssVar.menuText"
-    :active-text-color="$store.getters.cssVar.menuActiveText"
+    :background-color='$store.getters.cssVar.menuBg'
+    :text-color='$store.getters.cssVar.menuText'
+    :active-text-color='$store.getters.cssVar.menuActiveText'
     :default-active='currentPath'
     router
   >
     <sidebar-item :routes='routes'></sidebar-item>
   </el-menu>
+
 </template>
 <script setup>
 import { useRouter } from 'vue-router'
 import { filterRouters, generateMenus } from '@/utils/router'
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import SidebarItem from '@/views/layout/sidebar/SidebarItem'
 
 // 路由
@@ -29,4 +30,5 @@ const routes = computed(() => {
 const currentPath = computed(() => {
   return router.currentRoute.value.path
 })
+
 </script>

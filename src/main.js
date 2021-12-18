@@ -3,13 +3,13 @@ import i18n from '@/i18n'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+// 鉴权
+import './permission'
 import installElementPlus from './plugins/element'
 // svg-icon 图标组件
 import installSvgIcon from './icons'
 // 全局css
 import '@/assets/styles/index.scss'
-// 鉴权
-import './permission'
 // 注册全局filter
 import { installGlobalFilters } from '@/filters'
 // 注册全局指令

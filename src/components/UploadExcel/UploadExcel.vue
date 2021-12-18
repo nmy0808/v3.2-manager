@@ -98,6 +98,7 @@ const readerData = rawFile => {
       const header = getHeaderRow(worksheet)
       // 6. 解析数据体
       const results = XLSX.utils.sheet_to_json(worksheet)
+      console.log(results)
       // 7. 传入解析之后的数据
       generateData({
         header,
