@@ -10,6 +10,7 @@
       ref='treeCom'
       :data='permissionList'
       show-checkbox
+      :expand-on-click-node='false'
       default-expand-all
       node-key='id'
       highlight-current
@@ -82,7 +83,8 @@ const onCancel = () => {
 const onConfirm = async () => {
   const params = {}
   params.roleId = props.id
-  params.permissions = treeCom.value.getCheckedKeys()
+  params.permissions = treeCom.value.getCheckedKeys().concat(treeCom.value.getHalfCheckedNodes().map(it => it.id))
+  // params.permissions = treeCom.value.getCheckedKeys()
   // api: 为该角色分配权限
   await getDistributePermissionByIdApi(params)
   ElMessage.success('分配权限成功')

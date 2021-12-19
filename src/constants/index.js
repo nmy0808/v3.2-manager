@@ -12,5 +12,7 @@ export default {
   // tagsView
   TAGS_VIEW: 'TAGSVIEW',
   // 默认导出的文件名
-  DEFAULT_FILE_NAME: '员工信息管理表'
+  DEFAULT_FILE_NAME: '员工信息管理表',
+  // 动态路由
+  ROUTES: 'ROUTES'
 }

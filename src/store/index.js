@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 import user from '@/store/user'
 import app from '@/store/app'
 import theme from '@/store/theme'
+import permission from '@/store/permission'
 import getters from '@/store/getters'
 
 export default createStore({
@@ -14,6 +15,7 @@ export default createStore({
   modules: {
     user,
     app,
-    theme
+    theme,
+    permission
   }
 })

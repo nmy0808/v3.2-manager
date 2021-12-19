@@ -1,7 +1,7 @@
 import { getUserInfoApi, loginApi } from '@/api/sys'
 import storage from '@/utils/storage'
 import constants from '@/constants'
-import router from '@/router'
+import router, { resetRoutes } from '@/router'
 import { setLoginTimeStamp } from '@/utils/auth'
 
 export default {
@@ -9,6 +9,7 @@ export default {
   state: () => {
     return {
       token: storage.getItem(constants.TOKEN) || '',
+      // userInfo: {  }
       userInfo: {}
     }
   },
@@ -44,6 +45,7 @@ export default {
     },
     // 退出登录
     loginOut (ctx) {
+      resetRoutes()
       ctx.commit('setToken', '')
       ctx.commit('setUserInfo', {})
       ctx.commit('app/setTagsView', [], { root: true })

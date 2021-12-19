@@ -1,6 +1,8 @@
 <template>
   <div class='permission-page'>
-    <permission-table />
+    <el-card>
+      <permission-table />
+    </el-card>
   </div>
 </template>
 

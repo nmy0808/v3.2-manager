@@ -25,5 +25,7 @@ export default {
   // 主题颜色
   themeColor: state => state.theme.themeColor,
   // 头部tagsView
-  tagsView: state => state.app.tagsView
+  tagsView: state => state.app.tagsView,
+  // 当前路由列表
+  routes: state => state.permission.routes
 }

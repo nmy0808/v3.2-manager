@@ -1,6 +1,6 @@
 <template>
   <el-card class='user-action-container'>
-    <el-button type='primary' @click='onToPage'>excel导入</el-button>
+    <el-button type='primary' @click='onToPage' v-permission='`importUser`'>excel导入</el-button>
     <el-button type='success' @click='importVisible =true'>excel导出</el-button>
   </el-card>
   <Teleport to='body'>

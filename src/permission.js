@@ -1,5 +1,6 @@
 import store from '@/store'
-import router from '@/router'
+import router, { generateRoutes, privateRoutes } from '@/router'
+import { nextTick } from 'vue'
 // 白名单
 const whites = ['login', '404']
 // 1.token存在, 无法访问login, 会跳到首页
@@ -13,6 +14,8 @@ router.beforeEach(async (to, from, next) => {
       // 判断: 获取用户信息
       if (!store.getters.isHasUserInfo) {
         await store.dispatch('user/getUserInfo')
+        await store.dispatch('permission/generateRoutes')
+        return next(to.fullPath)
       }
       next()
     }
