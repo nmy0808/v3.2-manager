@@ -19,11 +19,14 @@
       </el-table-column>
       <el-table-column label='操作' fixed='right' #default='{row}' width='500'>
         <el-button size='mini' type='primary' @click='toPageUserInfo(row)'>查看</el-button>
-        <el-button size='mini' type='info'>角色</el-button>
+        <el-button size='mini' type='info' @click='onShowSetRoleDialog(row)'>角色</el-button>
         <el-button size='mini' type='danger' @click='onDeleteOneUserManage(row)'>删除</el-button>
       </el-table-column>
     </el-table>
   </el-card>
+  <Teleport to='body'>
+    <set-role-dialog v-model='setRoleVisible' :current-user='currentSetUser'/>
+  </Teleport>
 </template>
 
 <script setup>
@@ -31,6 +34,7 @@ import { inject, ref } from 'vue'
 import { deleteUserManageByIdApi } from '@/api/user-manage'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import router from '@/router'
+import SetRoleDialog from '@/views/user-manage/components/SetRoleDialog'
 
 const loading = ref(false)
 // 事件源
@@ -65,8 +69,16 @@ const onDeleteOneUserManage = async (item) => {
 const toPageUserInfo = (item) => {
   router.push('/user/info/' + item._id)
 }
-</script>
 
+// isShow: 设置权限窗口
+const setRoleVisible = ref(false)
+const currentSetUser = ref(null)
+// 事件: 打开设置角色弹窗
+const onShowSetRoleDialog = (item) => {
+  setRoleVisible.value = true
+  currentSetUser.value = item
+}
+</script>
 <style lang='scss' scoped>
 .user-table-container {
   .el-image {
