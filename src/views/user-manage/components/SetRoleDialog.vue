@@ -46,6 +46,7 @@ const roleList = ref(null)
 // watch: 监听传来的当前选择用户对象变化和当前是否开启窗口, 获取对应角色信息和角色列表
 watch([() => props.currentUser, () => props.modelValue], async ([user, isShow]) => {
   if (user && isShow) {
+    // 整理数组: 需要格式 [title,title, ...]
     roleData.value = (await getPermissionByIdApi(user._id)).role.map(it => it.title)
     roleList.value = await getRoleListApi()
   }
