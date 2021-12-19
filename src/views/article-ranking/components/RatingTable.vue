@@ -15,12 +15,14 @@
 <script setup>
 import { tableColumns } from '../dynamic'
 import { defineProps } from 'vue'
+import router from '@/router'
 
 const props = defineProps({
   tableData: Array
 })
-
+// 事件: 跳转到文章详情
 const onToPageDetail = (row) => {
+  router.push('/article/' + row._id)
 }
 const onDelete = (row) => {
 }

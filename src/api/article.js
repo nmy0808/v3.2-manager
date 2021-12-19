@@ -27,3 +27,12 @@ export async function getArticleSortApi (params) {
 export async function createArticleApi (params) {
   return request.post('/article/create', params)
 }
+
+/**
+ * 获取文章详情
+ * @param id
+ * @returns {Promise<*>}
+ */
+export async function getArticleDetailApi (id) {
+  return request.get('/article/' + id)
+}

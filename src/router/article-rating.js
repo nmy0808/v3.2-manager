@@ -17,6 +17,13 @@ export default {
         title: 'articleRanking',
         icon: 'article-ranking'
       }
+    },
+    {
+      path: '/article/:id',
+      component: () => import('@/views/article-detail/index'),
+      meta: {
+        title: 'articleDetail'
+      }
     }
   ]
 }
