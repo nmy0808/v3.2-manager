@@ -4,8 +4,8 @@ import request from '@/utils/request'
  * 获取所有文章
  * @returns {Promise<*>}
  */
-export async function getArticleListApi () {
-  return request.get('/article/list')
+export async function getArticleListApi (params) {
+  return request.get('/article/list', params)
 }
 
 /**
@@ -35,4 +35,13 @@ export async function createArticleApi (params) {
  */
 export async function getArticleDetailApi (id) {
   return request.get('/article/' + id)
+}
+
+/**
+ * 删除文章
+ * @param id
+ * @returns {Promise<*>}
+ */
+export async function deleteArticleByIdApi (id) {
+  return request.get('/article/delete/' + id)
 }

@@ -23,7 +23,6 @@
 import { ref } from 'vue'
 import router from '@/router'
 import { getArticleDetailApi } from '@/api/article'
-
 const id = router.currentRoute.value.params.id
 const detail = ref(null)
 

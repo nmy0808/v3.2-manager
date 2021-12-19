@@ -19,6 +19,7 @@
     "md5": "^2.3.0",
     "rgb-hex": "^4.0.0",
     "screenfull": "5.1.0",
+    "sortablejs": "1.14.0",
     "svg-sprite-loader": "6.0.9",
     "vue": "3.2.8",
     "vue-i18n": "9",
