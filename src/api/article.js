@@ -29,6 +29,15 @@ export async function createArticleApi (params) {
 }
 
 /**
+ * 编辑文章详情
+ * @param params {Object} id,title,content
+ * @returns {Promise<*>}
+ */
+export async function editArticleApi (params) {
+  return request.post('/article/edit', params)
+}
+
+/**
  * 获取文章详情
  * @param id
  * @returns {Promise<*>}
