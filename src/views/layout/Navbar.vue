@@ -1,37 +1,42 @@
 <template>
   <div class='navbar'>
-    <div class='left-menu'>
-      <!--     汉堡按钮-->
-      <hamburger class='hamburger-container' />
-      <!--      面包屑-->
-      <Breadcrumb/>
-    </div>
-    <div class='right-menu'>
-      <!--     引导-->
-      <Guide class='right-menu-item hover-effect' id='guide-start'/>
-      <!--     搜索 -->
-      <header-search />
-      <!--      全屏-->
-      <screen-full />
-      <!--      主题-->
-      <theme-select></theme-select>
-      <!--   国际化-->
-      <LangSelect />
-      <!--      头像  -->
-      <div class='avatar-wrapper'>
-        <el-dropdown trigger='click'>
+    <div class='navbar-top'>
+      <div class='left-menu'>
+        <!--     汉堡按钮-->
+        <hamburger class='hamburger-container' />
+        <!--      面包屑-->
+        <Breadcrumb />
+      </div>
+      <div class='right-menu'>
+        <!--     引导-->
+        <Guide class='right-menu-item hover-effect' id='guide-start' />
+        <!--     搜索 -->
+        <header-search />
+        <!--      全屏-->
+        <screen-full />
+        <!--      主题-->
+        <theme-select></theme-select>
+        <!--   国际化-->
+        <LangSelect />
+        <!--      头像  -->
+        <div class='avatar-wrapper'>
+          <el-dropdown trigger='click'>
             <span class='el-dropdown-link'>
               <el-avatar shape='square' :src='$store.state.user.userInfo.avatar' />
               <i class='el-icon-s-tools'></i>
             </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item>首页</el-dropdown-item>
-              <el-dropdown-item divided @click='onLayout'>退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item>首页</el-dropdown-item>
+                <el-dropdown-item divided @click='onLayout'>退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
       </div>
+    </div>
+    <div>
+      <slot></slot>
     </div>
   </div>
 </template>
@@ -53,12 +58,12 @@ const onLayout = () => {
 
 <style lang='scss' scoped>
 .navbar {
-  height: 50px;
   overflow: hidden;
   position: relative;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
-
+  .navbar-top{
+    overflow: hidden;
+  }
   .el-avatar {
     --el-avatar-bg-color: none;
   }

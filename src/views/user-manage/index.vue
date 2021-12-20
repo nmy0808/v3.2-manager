@@ -58,7 +58,7 @@ async function getUserMangeList () {
 
 <style lang='scss' scoped>
 .user-manage-page {
-  .user-table-container{
+  ::v-deep .user-table-container{
     margin-top: 20px;
   }
   ::v-deep .el-pager {

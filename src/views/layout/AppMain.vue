@@ -1,6 +1,12 @@
 <template>
   <div class='app-main'>
-    <router-view/>
+    <router-view v-slot="{ Component }">
+      <transition name='switch-page' mode='out-in'>
+        <keep-alive>
+          <component :is="Component" />
+        </keep-alive>
+      </transition>
+    </router-view>
   </div>
 </template>
 

@@ -12,3 +12,17 @@
 .breadcrumb-leave-active {
   position: absolute;
 }
+.switch-page-enter-active,
+.switch-page-leave-active {
+  transition: all 0.5s;
+}
+
+.switch-page-enter-from,
+.switch-page-leave-active {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.switch-page-leave-active {
+  position: absolute;
+}

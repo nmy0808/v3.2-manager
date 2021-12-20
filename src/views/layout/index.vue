@@ -9,9 +9,9 @@
     <div class='main-container'>
       <div class='fixed-header'>
         <!-- 顶部的 nav  bar -->
-        <navbar />
-<!--        -->
-        <tags-view class='tags-view-container'/>
+        <navbar>
+          <tags-view/>
+        </navbar>
       </div>
       <!-- 内容区 -->
       <app-main />
@@ -43,6 +43,9 @@ import TagsView from '@/components/TagsView/TagsView'
   z-index: 9;
   width: calc(100% - #{$sideBarWidth});
   transition: width #{$sideBarDuration};
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.09);
+  padding-bottom: 10px;
+  background: #fff;
 }
 
 .hideSidebar .fixed-header {

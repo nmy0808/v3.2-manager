@@ -8,10 +8,10 @@
       </el-form>
       <el-tabs class='tab-container' v-model='activeName'>
         <el-tab-pane label='markdown' name='0'>
-          <markdown :detail='detail'/>
+          <markdown :detail='detail' />
         </el-tab-pane>
         <el-tab-pane label='富文本' name='1'>
-          <editor />
+          <editor :detail='detail' />
         </el-tab-pane>
       </el-tabs>
     </el-card>
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed, provide, ref, watch } from 'vue'
+import { computed, nextTick, provide, ref, watch } from 'vue'
 import Editor from '@/views/article-create/components/Editor'
 import Markdown from '@/views/article-create/components/Markdown'
 import router from '@/router'
@@ -32,6 +32,8 @@ const title = ref('')
 const detail = ref(null)
 // provide: 标题
 provide('title', title)
+// provide: 重置富文本
+provide('resetEditor', resetEditor)
 // 当前文章id , 没有就是空
 const id = computed(() => router.currentRoute.value.params.id)
 // 判断: 编辑/新建文章
@@ -40,8 +42,7 @@ judgeEditType()
 // 重置
 watch(id, (newId) => {
   if (!newId) {
-    title.value = null
-    detail.value = null
+    resetEditor()
   }
 })
 
@@ -56,6 +57,13 @@ async function judgeEditType () {
   }
 }
 
+function resetEditor () {
+  title.value = null
+  detail.value = null
+  nextTick(() => {
+    router.push('/article/create')
+  })
+}
 </script>
 
 <style lang='scss' scoped>

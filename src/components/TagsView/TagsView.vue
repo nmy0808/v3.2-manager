@@ -73,10 +73,9 @@ const openMenu = (e, item) => {
 
 <style lang='scss' scoped>
 .tag-view-container {
-  padding: 10px 0;
+  background: #fff;
   display: flex;
   align-items: center;
-
   .tag-close-icon {
     font-size: 10px;
     position: absolute;
@@ -89,7 +88,7 @@ const openMenu = (e, item) => {
     padding: 6px 18px;
     border: 1px solid #d8dce5;
     box-sizing: border-box;
-    min-width: 70px;
+    min-width: 100px;
     position: relative;
     margin: 0 3px;
     color: #747784;
